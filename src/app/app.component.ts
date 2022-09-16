@@ -30,7 +30,7 @@ export class AppComponent {
       fecha: '02/09/2022',
       imagen:
         'https://user-images.githubusercontent.com/63882053/190665599-dd2db218-0db6-4b6d-bc4b-3a64276c01e2.png',
-      link: 'https://github.com/jdma253/portafolioPro',
+      link: 'https://github.com/jdma253/Portafolio-version0-1',
     },
 
     {
