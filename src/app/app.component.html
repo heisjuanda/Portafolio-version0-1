@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="w-b" lang="en" [style.background-image]="a()">
+  <!--[style.background-color]="w_b ? 'black' : '#E0FFFF'"-->
+  <head>
+    <title>Portafolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body class="w-b" [style.color]="w_b ? '#E0FFFF' : 'white'">
+
+<div class="mobile">
+  <h1 class="ligth">
+    Not available for Andorid Or IOs <span> <br> (Mobile version)</span>
+  </h1>
+</div>
+
+    <br />
+    <button (click)="Seeees()">
+      <p>
+        {{ Sees() }}
+      </p>
+    </button>
+    <br />
+    <section>
+      <header class="title">
+        <h1>About</h1>
+      </header>
+      <br />
+      <article>
+        <div class="description">
+          <span *ngIf="See">
+            <img
+              width="15%"
+              height="100%"
+              src="https://user-images.githubusercontent.com/63882053/190662633-6fe4b8fb-9730-4a43-8d03-bf16c07f1c3e.jpg"
+              alt=""
+            />
+          </span>
+          <h3 title="portafolio">
+            I am an energetic, hard-working person with a positive attitude and
+            good sense of humor. I am also a responsible person, who loves to
+            learn new technologies and techniques.Pretty curious learner, like
+            to be creative and make things happen.
+          </h3>
+        </div>
+      </article>
+    </section>
+
+    <br>
+    <br>
+    <br /><!--project zone-->
+    <div>
+      <button (click)="mostrar()">
+        <p>
+          {{ cambiar() }}
+        </p>
+      </button>
+    </div>
+
+    <br />
+
+    <section *ngIf="Mostrar">
+      <header>
+        <h2 class="ligth">Proyectos:</h2>
+      </header>
+      <br />
+      <br />
+      <article>
+        <div class="slider">
+          <input type="radio" name="toggle" id="btn-1" checked />
+          <input type="radio" name="toggle" id="btn-2" />
+          <input type="radio" name="toggle" id="btn-3" />
+          <!--<input type="radio" name="toggle" id="btn-4" />
+          <input type="radio" name="toggle" id="btn-5" />-->
+
+          <div class="slider-controls">
+            <label for="btn-1"></label>
+            <label for="btn-2"></label>
+            <label for="btn-3"></label>
+            <!--<label for="btn-4"></label>
+            <label for="btn-5"></label>-->
+          </div>
+
+          <ul class="slides">
+            <li class="slide" *ngFor="let i of proyecto; index as j">
+              <div class="slide-content">
+                <div class="slide-title">
+                  <h2
+                    [style.color]="w_b ? '#E0FFFF' : '#FFFFE0'"
+                    class="project"
+                  >
+                    {{ i.name }}
+                  </h2>
+                </div>
+                <!--<p class="slide-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat dignissimos commodi eos totam perferendis possimus dolorem, deleniti vitae harum? Enim.</p>-->
+                <div class="slide-text">
+                  <p class="">{{ i.fecha }}</p>
+                </div>
+                <div class="slide-link">
+                  <a title="" target="_blank" [href]="i.link">GitHub</a>
+                </div>
+              </div>
+              <div class="slide-image">
+                <a target="_blank" [href]="i.link">
+                  <img [src]="i.imagen" alt="" />
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!--<section *ngIf="Mostrar">
+      <header>
+        <h2 class="ligth">Proyectos:</h2>
+      </header>
+      <br />
+      <article>
+        <div class="pro">
+          <div *ngFor="let i of proyecto; index as j">
+            <a target="_blank" [href]="i.link">
+              <img [src]="i.imagen" alt="" />
+            </a>
+            <p class="project">{{ i.name }}</p>
+            <a target="_blank" [href]="i.link">GitHub</a>
+            <p class="project">{{ i.fecha }}</p>
+          </div>
+        </div>
+      </article>
+    </section>-->
+    <br />
+    <hr />
+    <br />
+    <section>
+      <header>
+        <div class="ligth" data-text="Contact me">Contact me</div>
+      </header>
+      <br />
+      <br />
+      <br />
+      <article class="formn">
+        <div>
+          <label [style.color]="name1.valid ? '#14df68' : '#ff7cae'" for="name"
+            >name:
+          </label>
+        </div>
+        <div>
+          <input
+            [style.color]="w_b ? 'e7ebf1' : 'white'"
+            type="text"
+            id="name"
+            pattern="[aA-zZ^' ']{1,55}"
+            required
+            #name1="ngModel"
+            placeholder="My name is..."
+            [(ngModel)]="campo1"
+          />
+        </div>
+        <br />
+        <div>
+          <label [style.color]="mail1.valid ? '#14df68' : '#ff7cae'" for="mail"
+            >Email:
+          </label>
+        </div>
+        <div>
+          <!--[style.background-color]="w_b ? 'black' : '#E0FFFF'"-->
+          <input
+            [style.color]="w_b ? '#e7ebf1' : 'white'"
+            type="text"
+            id="mail"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            required
+            #mail1="ngModel"
+            placeholder="Your Email Here"
+            [(ngModel)]="campo2"
+          />
+        </div>
+        <div>
+          <p *ngIf="mail1.invalid && campo2 != ''">Correo inválido</p>
+        </div>
+        <br />
+
+        <div>
+          <label
+            [style.color]="coment1.invalid ? '#ff7cae' : '#14df68'"
+            for="comment"
+            aria-setsize="20"
+            >comment</label
+          >
+        </div>
+        <div>
+          <textarea
+            [style.color]="w_b ? '#e7ebf1' : 'white'"
+            name=""
+            id="comment"
+            required
+            #coment1="ngModel"
+            cols="30"
+            rows="10"
+            [(ngModel)]="campo3"
+          ></textarea>
+        </div>
+      </article>
+    </section>
+
+    <div>
+      <br />
+      <button
+        (click)="addComment(campo1, campo2, campo3)"
+        *ngIf="mail1.valid && name1.valid && validarEmail(campo2)"
+        type="submit"
+      >
+        <a href="mailto:jdma253@gmail.com?subject=Hi!&body={{ campo3 }}">
+          <!--<img
+            width="20px"
+            src="https://icons.veryicon.com/png/o/weather/yochie-icons/send-17.png"
+            alt=""
+          />-->
+          Send
+        </a>
+      </button>
+    </div>
+    <br />
+
+    <div>
+      <h4 *ngIf="name1.valid && mail1.valid && coment1.valid" class="title">
+        Previous Coments:
+      </h4>
+    </div>
+    <br />
+
+    <section *ngFor="let y of comentarios; index as i">
+      <div *ngIf="y.email == campo2 && y.name == campo1">
+        <article class="description">
+          <p>{{ y.coment }}</p>
+          <p>Enviado por: {{ y.name }}, email: {{ y.email }}</p>
+        </article>
+      </div>
+    </section>
+    <br />
+    <br />
+
+    <div class="wrapper">
+      <div class="icon facebook">
+        <div class="tooltip">Facebook</div>
+        <span>
+          <i class="fab fa-facebook-f"></i>
+          <a href="https://www.facebook.com/jdma253/" target="_blank">
+            <img
+              width="100%"
+              src="https://user-images.githubusercontent.com/63882053/190663591-54b8fb74-a8e0-445a-a9e4-dc3c2e835ff3.png"
+              alt=""
+            />
+          </a>
+        </span>
+      </div>
+      <div class="icon linkedIn">
+        <div class="tooltip">LinkedIn</div>
+        <span>
+          <i class="fab fa-twitter"></i>
+          <a href="https://www.linkedin.com/in/juan-david-moreno-883a46233/" target="_blank">
+            <img
+              width="100%"
+              src="https://user-images.githubusercontent.com/63882053/190663719-cb04141c-4a3b-4c18-b49b-664e68c05bb7.png"
+              alt=""
+            />
+          </a>
+        </span>
+      </div>
+      <div class="icon instagram">
+        <div class="tooltip">Instagram</div>
+        <span>
+          <i class="fab fa-instagram"></i>
+          <a href="https://www.instagram.com/heisjuanda/" target="_blank">
+            <img
+              width="100%"
+              src="https://user-images.githubusercontent.com/63882053/190663463-098ab57a-257f-4522-8435-7d824cc15987.png"
+              alt=""
+            />
+          </a>
+        </span>
+      </div>
+      <div class="icon github">
+        <div class="tooltip">Github</div>
+        <span>
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/jdma253/" target="_blank">
+            <img
+              width="100%"
+              src="https://user-images.githubusercontent.com/63882053/190663849-a3a98bc6-5357-4c73-9f7f-059d6f507f83.png"
+              alt=""
+            />
+          </a>
+        </span>
+      </div>
+    </div>
+
+    <br />
+    <br>
+    <br>
+    <br>
+    <div class="center">
+      <button (click)="claroOscur()">
+        <p>Theme</p>
+      </button>
+    </div>
+
+  </body>
+</html>
+
+<!-- <div>
+      email zone
+      <div class="email">
+       <form action="/formulario" method="POST"> here 
+        <div>
+          <p class="message-error" [class.active]="name1.invalid">
+            El campo es requerido
+          </p>
+          <br />
+          <label class="message-error" [class.active]="mail1.invalid"
+            >El campo es requerido</label
+          >
+          <br />
+          <br />
+        <p [style.font-style]="mail1.invalid ? 'italic' : 'normal'">hola hola</p>
+          <p class="message-error" [class.active]="coment1.invalid">
+            El campo es requerido
+          </p>
+          <form
+            id="form"
+            action="https://formsubmit.co/jdma253@email.com"
+            method="POST"
+          >
+            <div *ngIf="false">
+              <input type="text" id="n" name="n" [(ngModel)]="campo1" />
+              <input type="text" id="m" name="m" [(ngModel)]="campo2" />
+              <input type="text" id="c" name="c" [(ngModel)]="campo3" />
+            </div>
+           <input type="submit" *ngIf="validarEmail(campo2) && campo1!=''">
+          </form>
+        </form> here 
+        </div>
+      </div>
+    </div>-->
